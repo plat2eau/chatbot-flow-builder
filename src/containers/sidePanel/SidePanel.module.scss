@@ -1,0 +1,56 @@
+.side-panel-container {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  right: 0;
+  top: 58px;
+  background-color: #FCFCFC;
+  opacity: 100%;
+  z-index: 100;
+  border-color: gray;
+  border-style: solid;
+  border-width: 0 0 0 3px;
+}
+
+.panel-container {
+  padding: 20px;
+}
+
+.message-node {
+  height: 100px;
+  width: 200px;
+  background-color: #FFFFFF;
+
+}
+
+.settings-header{
+  height: 52px;
+  text-align: center;
+  padding: 12px;
+}
+
+.settings-heading{
+  text-align: center;
+  color: #555555;
+  font-weight: bolder;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.message-type {
+  color: #AAAAAA;
+  font-weight: lighter;
+}
+
+.text-input {
+  margin: 5px 5px 5px 0px;
+  height: 52px;
+  width: 100%;
+  border: 1px solid #AAAAAA;
+}

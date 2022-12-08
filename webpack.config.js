@@ -28,8 +28,14 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+                include: [/node_modules/]
+            },
+            {
                 test: /\.(s(a|c)ss)|(.css)$/,
                 include: path.resolve(__dirname, 'src'),
+                exclude: [/node_modules/],
                 use: [{
                     loader: 'style-loader'
                 }, {
@@ -63,6 +69,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+        alias: {
+            '~': path.resolve('./node_modules')
+        }
     },
     output: {
         filename: '[name].bundle.[hash].js',

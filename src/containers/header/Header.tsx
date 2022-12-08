@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Container} from "semantic-ui-react";
+import Button from '../../components/button/Button';
 import cssExports from "./Header.module.scss";
-import ITheme from "../../types/ITheme";
 
 type HeaderProps = {
-    theme: ITheme
 }
 
 type HeaderState = {
@@ -15,8 +13,11 @@ class Header extends React.Component<HeaderProps, HeaderState>{
 
     render() {
         return(
-            <Container className={cssExports.container}>
-            </Container>
+            <div className={cssExports.container}>
+                <div className={cssExports.buttonContainer}>
+                    <Button text={"Save Changes"}/>
+                </div>
+            </div>
         );
     }
 }

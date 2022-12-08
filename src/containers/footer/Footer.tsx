@@ -1,10 +1,8 @@
 import * as React from 'react';
 
-import cssExports from "./Header.module.scss";
-import ITheme from "../../types/ITheme";
+import cssExports from "./Footer.module.scss";
 
 type FooterProps = {
-    theme: ITheme
 }
 
 type FooterState = {

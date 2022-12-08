@@ -13,6 +13,7 @@
       "es6",
       "dom"
     ],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "declaration": true,
     "declarationDir": "./types",
     "resolveJsonModule": true
