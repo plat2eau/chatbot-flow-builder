@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Handle, Position } from 'reactflow';
 import cssExports from "./TextMessage.module.scss";
-import {Data, TextMessage} from "../types/DataTypes";
+import {TextMessageData} from "../../constants/types/DataTypes";
 
 type TextNodeProps = {
     isConnectable: boolean
-    data: TextMessage
+    data: TextMessageData,
+    id: string
 }
 
 export default React.memo((props: TextNodeProps) => {

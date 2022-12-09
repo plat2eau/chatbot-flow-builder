@@ -55,7 +55,7 @@ const SidePanel = (props: SidePanelProps) => {
                     <hr />
                     <div className={cssExports.panelContainer}>
                         <div className={cssExports.messageType}>Text</div>
-                        <input className={cssExports.textInput} value={nodeName} onChange={(evt) => setNodeName(evt.target.value)}/>
+                        <textarea className={cssExports.textInput} value={nodeName} onChange={(evt) => setNodeName(evt.target.value)}/>
                     </div>
                     <hr />
                 </div>}

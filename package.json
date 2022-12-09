@@ -9,7 +9,9 @@
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
     "dev": "webpack serve",
-    "flow": "flow"
+    "flow": "flow",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/plat2eau/sample-web-app/issues"
   },
-  "homepage": "https://github.com/plat2eau/sample-web-app#readme",
+  "homepage": "https://github.com/plat2eau/chatbot-flow-builder",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
@@ -34,6 +36,7 @@
     "css-loader": "^6.7.2",
     "css-modules-typescript-loader": "^4.0.1",
     "flow-bin": "^0.194.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^8.0.0",
     "postcss": "^8.4.19",

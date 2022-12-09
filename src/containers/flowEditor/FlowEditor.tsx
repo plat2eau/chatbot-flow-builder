@@ -1,21 +1,21 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import ReactFlow, {
-    ReactFlowProvider,
     addEdge,
-    applyNodeChanges,
     applyEdgeChanges,
-    Controls,
+    applyNodeChanges,
     Background,
-    NodeChange,
-    EdgeChange,
     Connection,
-    Node
+    Controls,
+    EdgeChange,
+    Node,
+    NodeChange,
+    ReactFlowProvider
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
 import cssExports from "./FlowEditor.module.scss";
 import SidePanel from "../sidePanel/SidePanel";
-import TextMessage from "../../nodes/TextMessage.node";
+import NodeTypesMap from "../../nodes/NodeTypesMap";
 
 let id = 0;
 const getId = () => `${id++}`;
@@ -27,10 +27,6 @@ const initialNodes: Node[] = [
     { id: "1", data: { label: 'Node 1' }, position: { x: 5, y: 5 }, type: 'textMessage' },
     { id: "2", data: { label: 'Node 2' }, position: { x: 5, y: 100 }, type: 'textMessage' },
 ];
-
-const nodeTypes = {
-    'textMessage': TextMessage
-}
 
 const FlowEditor = (props: FlowEditorProps) => {
     const reactFlowWrapper = useRef(null);
@@ -48,15 +44,17 @@ const FlowEditor = (props: FlowEditorProps) => {
         [setEdges]
     );
     const onConnect = useCallback(
-        (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
-        [setEdges]
+        (connection: Connection) => {
+            let obj = edges.find(element => element.source === connection.source);
+            if(obj) {
+                return
+            }
+            setEdges((eds) => addEdge(connection, eds))
+        },
+        [edges, setEdges]
     );
 
-    const onClick = useCallback((event: any, node: any) => {
-        console.log(edges)
-        console.log(nodes)
-        setSelectedNode(node.id)
-    }, [])
+    const onClick = useCallback((event: any, node: any) => {setSelectedNode(node.id)}, [])
 
     const onBackArrowClick = useCallback(() => setSelectedNode(null), [])
 
@@ -85,7 +83,7 @@ const FlowEditor = (props: FlowEditorProps) => {
                 id: getId(),
                 type,
                 position,
-                data: { label: `${type} node` },
+                data: { label: `${type}` },
             };
             console.log(newNode)
 
@@ -109,7 +107,7 @@ const FlowEditor = (props: FlowEditorProps) => {
                         onDrop={onDrop}
                         onNodeClick={onClick}
                         onDragOver={onDragOver}
-                        nodeTypes={nodeTypes}
+                        nodeTypes={NodeTypesMap}
                         fitView>
                         <Background/>
                         <Controls />
