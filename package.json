@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/plat2eau/sample-web-app/issues"
   },
-  "homepage": "https://github.com/plat2eau/chatbot-flow-builder",
+  "homepage": "http://plat2eau.github.io/chatbot-flow-builder",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
