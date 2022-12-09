@@ -6,3 +6,4 @@ node_modules
 *.scss.d.ts
 *.sass.d.ts
 *.css.d.ts
+out/
