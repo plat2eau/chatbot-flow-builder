@@ -9,7 +9,6 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 
 import cssExports from "./FlowEditor.module.scss";
-import SidePanel from "../sidePanel/SidePanel";
 import NodeTypesMap from "../../nodes/NodeTypesMap";
 
 /*

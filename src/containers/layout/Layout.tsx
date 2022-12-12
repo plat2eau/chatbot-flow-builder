@@ -6,7 +6,7 @@ import cssExports from "./Layout.module.scss";
 
 type LayoutProps = {
     children?: React.ReactNode,
-    onSaveButtonClick?: () => void
+    onSaveButtonClick?: () => boolean
 }
 
 type LayoutState = {}

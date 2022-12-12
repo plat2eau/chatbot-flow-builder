@@ -5,6 +5,7 @@ import FlowEditor from "../containers/flowEditor/FlowEditor";
 import {useCallback, useRef, useState} from "react";
 import {addEdge, applyEdgeChanges, applyNodeChanges, Connection, Edge, EdgeChange, Node, NodeChange} from "reactflow";
 import SidePanel from "../containers/sidePanel/SidePanel";
+import {element} from "prop-types";
 
 type DashboardProps = {}
 
@@ -53,9 +54,29 @@ const Dashboard = (props: DashboardProps) => {
         [edges, setEdges]
     );
 
-    const saveNodes = useCallback((nodes: Node[], edges: Edge[]) => {
+    const saveNodes = (nodes: Node[], edges: Edge[]): boolean => {
+        console.log({nodes, edges});
+        let oneNodeFlag = false;
+        // For each node, finding an edge that has the same source as the node id
+        // reactflow adds duplicate nodes in the array while updating them so we have to use array od parsed ids
+        let parsedNodes: string[] = []
+        let foundNodes = nodes.filter(node => {
+            if(parsedNodes.includes(node.id)) {
+                return false;
+            }
+            let edgeFound = edges.find(edge => edge.source === node.id)
+            if(!edgeFound) {
+                return true;
+            }
+            return false;
+        })
+        if(foundNodes && foundNodes.length>1) {
+            return false;
+        }
+        localStorage.removeItem("flow.data")
         localStorage.setItem("flow.data", JSON.stringify({nodes: nodes, edges: edges}))
-    }, [nodes])
+        return true;
+    }
 
     const onClick = useCallback((event: any, node: any) => {setSelectedNode(node.id)}, [])
 
@@ -97,7 +118,7 @@ const Dashboard = (props: DashboardProps) => {
     );
 
     return (
-        <Layout onSaveButtonClick={() => {console.log({nodes, edges}); saveNodes(nodes, edges)}}>
+        <Layout onSaveButtonClick={() => {return saveNodes(nodes, edges)}}>
             <FlowEditor
             nodes={nodes}
             edges={edges}
