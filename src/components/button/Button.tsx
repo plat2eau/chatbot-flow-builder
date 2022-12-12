@@ -10,7 +10,9 @@ type ButtonProps = {
 
 type ButtonState = {
 }
-
+/*
+* Same Button can be re-used on multiple places
+* */
 class Button extends React.Component<ButtonProps, ButtonState> {
     componentDidMount() {
         console.log(this.props.onClick)

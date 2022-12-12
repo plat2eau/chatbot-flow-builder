@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Container, Divider, Icon} from 'semantic-ui-react';
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
@@ -12,6 +11,9 @@ type LayoutProps = {
 
 type LayoutState = {}
 
+/*
+* Layout contains the header and the footer of the app.
+* */
 class Layout extends React.Component<LayoutProps, LayoutState> {
 
     render() {

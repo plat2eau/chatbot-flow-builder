@@ -6,6 +6,10 @@ import NoMatch from './components/NoMatch';
 
 type AppProps = {}
 
+/*
+* App contains all the routes for the app
+* Using route chatbot-flow-builder as a temporary measure for deploying on github
+* */
 const App = (props: AppProps) => {
     return (
         <Router>

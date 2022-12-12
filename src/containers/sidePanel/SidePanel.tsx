@@ -9,7 +9,11 @@ type SidePanelProps = {
     nodeId?: number,
     onClickBackArrow: Function
 }
-
+/*
+* SidePanel contains two things:
+* An area containing all the nodes which can be drag-dropped into the play area
+* A settings panel that can be used to define settings for the node by clicking on that node
+* */
 const SidePanel = (props: SidePanelProps) => {
     const onDragStart = (event: any, nodeType: string) => {
         event.dataTransfer.setData('application/reactflow', nodeType);

@@ -16,6 +16,11 @@ type SaveData = {
 let id = 0;
 const getId = () => `${id++}`;
 
+/*
+* Dashboard screen maintains all state values for nodes, edges and provides necessary functions to the flow editor
+* Also Contains Save, Load functions to save and load from local storage
+* We should ideally be using a state management system like redux to manage state instead of using hooks
+* */
 const Dashboard = (props: DashboardProps) => {
 
 
