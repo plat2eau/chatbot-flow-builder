@@ -34,7 +34,7 @@ class Header extends React.Component<HeaderProps, HeaderState>{
                     <Button text={"Save Changes"} onClick={this.onSaveButtonClick}/>
                 </div>
                 {(filesSaved != null) && <div className={cssExports.errorContainer} style={{backgroundColor: filesSaved?"#82ff6e":"#FF9896"}}>
-                    {filesSaved?"Files Saved Successfully":"Cannot save Files"}
+                    {filesSaved?"Flow Saved Successfully":"Cannot save Flow"}
                 </div>}
             </div>
         );
