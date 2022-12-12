@@ -12,6 +12,7 @@ const App = (props: AppProps) => {
             <Routes>
                 <Route path="*" element={<NoMatch/>}/>
                 <Route path={"/"} element={<Navigate to={"/home"} replace/>}/>
+                <Route path="/chatbot-flow-builder" element={<Dashboard/>}/>
                 <Route path="/home" element={<Dashboard/>}/>
             </Routes>
         </Router>
